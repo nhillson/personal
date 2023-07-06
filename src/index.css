@@ -12,6 +12,11 @@ code {
     monospace;
 }
 
+footer {
+  position: absolute;
+  bottom: 0;
+}
+
 .title {
   text-align: center;
 }
