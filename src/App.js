@@ -1,24 +1,32 @@
 import { BrowserRouter, Route, Routes, Link, } from "react-router-dom"
 
 function LangItem({ lang }) {
-  let key = Object.keys(lang)[0];
-  let value = lang[0];
+  let language = lang.language;
+  let resources = lang.resources.join(", ");
   return (
     <tr>
-      <h4>{ key }</h4>
-      <h6>{ value }</h6>
+      <td>
+      <div>{language}</div>
+      <div>Resources:  {resources}</div>
+      </td>
     </tr>
   );
 }
 
 function LangList() {
-  const langs = [{JS: "I learned in xxx"}];
+  const langs = [{language:"C", resources:["Harvard's CS50X"]}, {language:"Python 3", resources:["Python Crash Course", "Harvard's CS50X", "Harvard's CS50P", "Code Combat", "The Big Book of Small Python Projects"]}, {language:"HTML/CSS", resources:["Harvard's CS50X", "Harvard's CS50W", "FreeCodeCamp"]}, {language:"JavaScript", resources:["Harvard's CS50W", "Mozilla Developer Network", "Code Combat"]}, {language:"SQL", resources:["Harvard's CS50X"]}, {language:"Django", resources:["Harvard's CS50W"]}, {language:"React", resources:["Harvard's CS50W", "React Documentation"]}];
   const rows = [];
   langs.forEach((lang) => {
     rows.push(<LangItem lang={lang} />)
   })
   return (
-    <div>{ rows }</div>
+    <table className="langtable">
+      <thead>
+        <th>Languages</th>
+      </thead>
+      <tbody>{rows}</tbody>
+    </table>
+    
   );
 }
 
@@ -26,7 +34,7 @@ function Homepage() {
   return (
     <div>
       <h2 className="title">
-        Hello, and welcome to my website! This site contains several personal projects as well as information about myself, and will be update over time to reflect my continuing education.
+        Hello, and welcome to my website! This site contains several personal projects as well as information about myself, and will be updated over time to reflect my continuing education.
       </h2>
     </div>
   );
@@ -55,18 +63,16 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/languages" element={<Languages />} />
         <Route path="/*" element={<NotFoundPage />} />
-      </Routes>
-    <footer>
+    </Routes>
+      <footer>
       <nav>
         <ul>
           <li><Link to="/">Homepage</Link></li>
           <li><Link to="/languages">Languages</Link></li>
         </ul>
       </nav>
-    </footer>
-      
+      </footer>
     </BrowserRouter>
-    
   );
 }
 
