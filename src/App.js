@@ -1,13 +1,30 @@
 import { BrowserRouter, Route, Routes, Link, } from "react-router-dom"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
 
+
+function NavBar() {
+  return (
+    <Navbar>
+      <Navbar.Brand><img alt="Cute Mushroom" src="brand.png" width="40" height="40" /></Navbar.Brand>
+      <Nav>
+        <Nav.Link href="/">Homepage</Nav.Link>
+        <Nav.Link href="/languages">Languages</Nav.Link>
+      </Nav>
+    </Navbar>
+  );
+}
 function LangItem({ lang }) {
   let language = lang.language;
   let resources = lang.resources.join(", ");
   return (
     <tr>
       <td>
-      <div>{language}</div>
-      <div>Resources:  {resources}</div>
+      <div className="table-lang"><b>{language}</b></div>
+      <div className="table-resource">Resources:  {resources}</div>
       </td>
     </tr>
   );
@@ -32,19 +49,28 @@ function LangList() {
 
 function Homepage() {
   return (
-    <div>
-      <h2 className="title">
-        Hello, and welcome to my website! This site contains several personal projects as well as information about myself, and will be updated over time to reflect my continuing education.
-      </h2>
-    </div>
+    <Container fluid>
+      <NavBar />
+      <Row>
+        <Col></Col>
+        <Col xs={8}>
+          <h2 className="title">
+          Hello, and welcome to my website! This site contains several personal projects as well as a bit of information about myself, and will be updated over time to reflect my continuing education.
+          </h2>
+        </Col>
+        <Col></Col>
+      </Row>
+    </Container>
   );
 }
 
 function Languages() {
   return (
-    <div>
+    <Container fluid>
+      <NavBar />
+    
       <LangList />
-    </div>
+    </Container>
   )
 }
 
@@ -59,19 +85,11 @@ function NotFoundPage() {
 function App() {
   return (
     <BrowserRouter>
-    <Routes>
+      <Routes>
         <Route path="/" element={<Homepage />} />
         <Route path="/languages" element={<Languages />} />
         <Route path="/*" element={<NotFoundPage />} />
-    </Routes>
-      <footer>
-      <nav>
-        <ul>
-          <li><Link to="/">Homepage</Link></li>
-          <li><Link to="/languages">Languages</Link></li>
-        </ul>
-      </nav>
-      </footer>
+      </Routes>
     </BrowserRouter>
   );
 }
