@@ -28,7 +28,7 @@ function LangItem({ lang , active, onShow }) {
     <tr onClick={onShow}>
       <td>
       <div className="table-lang"><b>{language}</b></div>
-      {active == language ? (
+      {active === language ? (
         <div className="table-resource">Resources:  {resources}</div>
       ) : (
         <div></div>
@@ -43,7 +43,7 @@ function LangList() {
   const rows = [];
   langs.forEach((lang) => {
     rows.push(<LangItem lang={lang} active={active} onShow={() => {
-      if (lang.language == active) {
+      if (lang.language === active) {
         setActive("None")
       } else {
         setActive(lang.language)
