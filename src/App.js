@@ -21,27 +21,34 @@ function NavBar() {
     </Navbar>
   );
 }
-function LangItem({ lang }) {
+function LangItem({ lang , active, onShow }) {
   let language = lang.language;
   let resources = lang.resources.join(", ");
-  function handleClick() {
-    alert('clicked!');
-  }
   return (
-    <tr>
-      <td onClick={handleClick}>
+    <tr onClick={onShow}>
+      <td>
       <div className="table-lang"><b>{language}</b></div>
-      <div className="table-resource">Resources:  {resources}</div>
+      {active == language ? (
+        <div className="table-resource">Resources:  {resources}</div>
+      ) : (
+        <div></div>
+      )}
       </td>
     </tr>
   );
 }
 
 function LangList() {
-  
+  const [active, setActive] = useState("None");
   const rows = [];
   langs.forEach((lang) => {
-    rows.push(<LangItem lang={lang} />)
+    rows.push(<LangItem lang={lang} active={active} onShow={() => {
+      if (lang.language == active) {
+        setActive("None")
+      } else {
+        setActive(lang.language)
+      }
+    }} />)
   })
   return (
     <table className="langtable">
