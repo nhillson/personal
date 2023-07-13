@@ -35,7 +35,7 @@ th {
   font-size: 30px;
 }
 
-td {
+tr {
   border: 1px solid;
   padding-left: 10px;
   padding-right: 10px;
@@ -43,5 +43,12 @@ td {
 
 .table-lang {
   font-size: 20px;
-  
+}
+
+.table-resource {
+  font-size: 15px;
+}
+
+.langtable tr:nth-child(even) {
+  background-color: #bebebe;
 }
