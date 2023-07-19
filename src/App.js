@@ -6,6 +6,7 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
 import { useState } from "react";
+import MapChart from "./mushmap";
 
 const langs = [
   { language: "C", resources: ["Harvard's CS50X"] },
@@ -159,6 +160,9 @@ function About() {
           </LinkContainer>
         </Col>
         <Col />
+      </Row>
+      <Row>
+        <MapChart></MapChart>
       </Row>
     </Container>
   );
