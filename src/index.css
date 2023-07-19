@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #e0e1f3;
 }
 
 code {
@@ -50,5 +51,21 @@ tr {
 }
 
 .langtable tr:nth-child(even) {
-  background-color: #bebebe;
+  background-color: #c1c4e8;
+}
+
+.profpic {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.profdescription {
+  text-align: center;
+  padding: 30px;
+  height: 80px;
+}
+
+.profdescrow {
+  background-color: #a1a6dc;
 }

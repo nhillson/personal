@@ -129,11 +129,36 @@ function About() {
   return (
     <Container fluid>
       <Row>
-        <Col></Col>
-        <Col xs={8}>
-          <h2>Hi</h2>
+        <Col>
+          <img src="profpic.jpg" alt="Profile" height={180} width={180} className="profpic"/>
         </Col>
-        <Col></Col>
+      </Row>
+      <br />
+      <Row className="profdescrow">
+        <Col />
+        <Col xs={4}><p className="profdescription">Hi, I'm Nick.  I'm a self-taught web developer living in the Twin Cities area.</p></Col>
+        <Col />
+      </Row>
+      <Row className="profinfo">
+        <Col />
+        <Col xs={2}>
+          <h5>I am a...</h5>
+          <ul>
+            <li>
+              <LinkContainer to="/">
+                <u>Programmer</u>
+              </LinkContainer>
+            </li>
+          </ul>
+        </Col>
+        <Col xs={1}></Col>
+        <Col xs={2}>
+          <h5>I enjoy...</h5>
+          <LinkContainer to="/">
+            <u>Mycology</u>
+          </LinkContainer>
+        </Col>
+        <Col />
       </Row>
     </Container>
   );
